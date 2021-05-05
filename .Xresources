@@ -1,0 +1,72 @@
+
+
+!! Colors and transparency
+! special
+URxvt.depth: 32
+*.foreground: #dfe3f4
+*.background: [85]#1a1d26
+*.cursorColor: #dfe3f4
+
+! black
+*.color0:       #1a1d26
+*.color8:       #4d4d4d
+
+! red
+*.color1:       #cc0403
+*.color9:       #A0100D
+
+! green
+*.color2:       #19cb00
+*.color10:      #dfe3f4
+
+! yellow
+*.color3:       #cecb00
+*.color11:      #fffd00
+
+! blue
+*.color4:       #2F30EE
+*.color12:      #82848E
+
+! magenta
+*.color5:       #cb1ed1
+*.color13:      #fd28ff
+
+! cyan
+*.color6:       #0dcdcd
+*.color14:      #14ffff
+
+! white
+*.color7:       #e5e5e5
+*.color15:      #ffffff
+
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+URxvt.urlLauncher: google-chrome
+URxvt.underlineURLs: true
+
+!! URxvt Appearance
+URxvt.font: xft:monospace:stye=Regular:size=9
+URxvt.boldFont: xft:monospace:stye=Bold:size=9
+URxvt.italicFont: -xft:monospace:stye=Italic:size=9
+URxvt.boldItalicfont:-xft:monospace:stye=Bold Italic:size=9
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 2
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+
+!! Zoom
+URxvt.keysym.C-plus: font-size:increase
+URxvt.keysym.C-minus: font-size:decrease

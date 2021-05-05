@@ -1,0 +1,30 @@
+general {
+        colors = false
+        interval = 1
+}
+
+order += "wireless wls3"
+order += "ethernet eth0"
+order += "battery 0"
+order += "tztime berlin"
+
+wireless wls3 {
+        format_up = "W: (Connected to %essid, %bitrate) %ip"
+        format_down = "W: down"
+}
+
+ethernet eth0 {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery 0 {
+        format = "Battery %percentage" 
+        format_down = "No battery"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+}
+
+tztime berlin {
+        format = "%Y-%m-%d %H:%M:%S"
+        timezone = "Europe/Berlin"
+}
