@@ -4,6 +4,7 @@ command Wq wq
 command WQ wq
 
 colorscheme desert
+syntax on
 
 set number relativenumber
 set tabstop=4
