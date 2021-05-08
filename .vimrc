@@ -15,6 +15,8 @@ set autoread
 
 let mapleader = ","
 
+setlocal foldmethod=indent
+
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR> 
 
 " NERDTree autostart"
