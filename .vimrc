@@ -14,11 +14,22 @@ set nowrap
 set incsearch
 set autoread
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'dense-analysis/ale'
+
+call plug#end()
+
 let mapleader = ","
 
 setlocal foldmethod=indent
+set foldlevel=1
+set nofoldenable
 
-nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR> 
+nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
 
 " NERDTree autostart"
 autocmd VimEnter * NERDTree | wincmd p
