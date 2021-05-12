@@ -14,6 +14,9 @@ set nowrap
 set incsearch
 set autoread
 
+" air-line
+let g:airline_powerline_fonts = 1
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
