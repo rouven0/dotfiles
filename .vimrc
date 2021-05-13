@@ -23,7 +23,6 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
-Plug 'maralla/completor.vim'
 
 call plug#end()
 
@@ -31,7 +30,6 @@ let mapleader = ","
 
 setlocal foldmethod=indent
 set foldlevel=1
-set nofoldenable
 
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
 
