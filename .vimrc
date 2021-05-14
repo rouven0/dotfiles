@@ -2,6 +2,7 @@ command Q q
 command W w
 command Wq wq
 command WQ wq
+command S sp
 
 colorscheme desert
 syntax on
@@ -23,10 +24,13 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-let mapleader = ","
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 setlocal foldmethod=indent
 set foldlevel=1
@@ -39,3 +43,5 @@ autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
+
+nnoremap <leader>f :Files<CR>

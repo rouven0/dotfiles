@@ -214,4 +214,4 @@ bar {
 
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nf '#BBBBBB' -nb '#0A1D26' -sb '#797C81' -sf '#000000'"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nf '#BBBBBB' -nb '#1A1D26' -sb '#797C81' -sf '#000000'"
