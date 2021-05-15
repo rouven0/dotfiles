@@ -4,7 +4,7 @@ general {
 }
 
 order += "wireless wls3"
-order += "ethernet eth0"
+order += "ethernet enp0s25"
 order += "battery 0"
 order += "tztime berlin"
 
@@ -13,7 +13,7 @@ wireless wls3 {
         format_down = "W: down"
 }
 
-ethernet eth0 {
+ethernet enp0s25 {
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
 }
