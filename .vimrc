@@ -23,9 +23,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -34,14 +34,21 @@ let mapleader = " "
 
 setlocal foldmethod=indent
 set foldlevel=1
+set nofoldenable
 
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
 
 " NERDTree autostart"
 autocmd VimEnter * NERDTree | wincmd p
-
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
+
+highlight Pmenu ctermbg=black ctermfg=gray
+highlight PmenuSel ctermbg=gray ctermfg=black
