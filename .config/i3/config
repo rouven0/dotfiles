@@ -31,6 +31,10 @@ exec --no-startup-id compton
 # start kde connect
 exec --no-startup-id kdeconnect-indicator
 
+# start pulseaudio in case of crashes.
+# soemthing got fucked up in my system
+exec --no-startup-id pulseaudio --start
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -64,6 +68,9 @@ bindsym $mod2+f exec firefox
 #
 # discord
 bindsym $mod2+d exec discord
+
+# spotify
+bindsym $mod2+s exec spotify --no-zygote
 
 # kill focused window
 bindsym $mod+Shift+q kill
