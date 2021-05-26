@@ -2,7 +2,7 @@
 
 ln -nfs /home/$USER/dotfiles/.vimrc /home/$USER/.vimrc
 ln -nfs /home/$USER/dotfiles/.gitconfig /home/$USER/.gitconfig
-ln -nfs /home/$USER/dotfiles/.Xresources /home/$USER/.Xresources
+ln -nfs /home/$USER/dotfiles/.zshrc /home/$USER/.zshrc
 
 mkdir /home/$USER/.config/i3
 mkdir /home/$USER/.config/i3status
