@@ -55,6 +55,12 @@ bindsym $mod2+d exec discord
 # spotify
 bindsym $mod2+s exec spotify --no-zygote
 
+# thunderbird
+bindsym $mod2+t exec thunderbird
+
+# virtualbox
+bindsym $mod2+v exec virtualbox
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
