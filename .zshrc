@@ -1,6 +1,8 @@
+autoload -U colors && colors
+
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _complete _ignored _correct _approximate
+zstyle ':completion:*' completer _complete _ignored 
 zstyle ':completion:*' format '%d'
 zstyle ':completion:*' group-name ''
 zstyle :compinstall filename '/home/rouven/.zshrc'
@@ -12,5 +14,7 @@ compinit
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
+
+PROMPT='%B%~%b $ '
