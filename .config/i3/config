@@ -20,7 +20,7 @@ exec --no-startup-id kdeconnect-indicator
 
 # start pulseaudio in case of crashes.
 # soemthing got fucked up in my system
-exec --no-startup-id pulseaudio --start
+exec pulseaudio --start
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
