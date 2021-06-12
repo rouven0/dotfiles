@@ -17,4 +17,5 @@ SAVEHIST=1000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+export GPG_TTY=$(tty)
 PROMPT='%B%~%b $ '
