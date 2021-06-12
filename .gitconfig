@@ -1,6 +1,7 @@
 [user]
 	name = Rouven
 	email = seifertrouven@gmail.com
+	signingkey = 72D8736BE583A4D1
 [core]
 	autocrlf = input
 	editor = vim
@@ -10,3 +11,5 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
