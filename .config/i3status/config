@@ -19,6 +19,6 @@ battery 0 {
 }
 
 tztime berlin {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%d.%m.%Y %H:%M:%S"
         timezone = "Europe/Berlin"
 }
