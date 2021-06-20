@@ -4,6 +4,7 @@ general {
 }
 
 order += "wireless wls3"
+order += "volume master"
 order += "battery 0"
 order += "tztime berlin"
 
@@ -12,8 +13,16 @@ wireless wls3 {
         format_down = "W: down"
 }
 
+volume master {
+        format = "🔊: %volume"
+        format_muted = "🔈"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
 battery 0 {
-        format = "Battery %percentage" 
+        format = "Battery %percentage"
         format_down = "No battery"
         path = "/sys/class/power_supply/BAT%d/uevent"
 }
