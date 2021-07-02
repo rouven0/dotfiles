@@ -11,10 +11,8 @@ command Q q
 command W w
 command Wq wq
 command WQ wq
-command S sp
 
 " coloring stuff
-colorscheme desert
 syntax on
 
 set number relativenumber
@@ -36,6 +34,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -63,6 +62,11 @@ nnoremap <leader>b :Buffers<CR>
 " keybinds for coc
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+
+" split keybinds
+nnoremap <leader>s :sp<CR>
+nnoremap <leader>v :vs<CR>
+
 
 " better autocompletion menu colors
 highlight Pmenu ctermbg=black ctermfg=gray
