@@ -7,7 +7,10 @@ mkdir /home/$USER/.config/i3
 mkdir /home/$USER/.config/i3status
 mkdir /home/$USER/.config/dunst
 mkdir /home/$USER/.config/fontconfig
+mkdir /home/$USER/.config/alacritty
+
 ln -nfs /home/$USER/dotfiles/.config/i3/config /home/$USER/.config/i3/config
 ln -nfs /home/$USER/dotfiles/.config/i3status/config /home/$USER/.config/i3status/config
 ln -nfs /home/$USER/dotfiles/.config/dunst/dunstrc /home/$USER/.config/dunst/dunstrc
 ln -nfs /home/$USER/dotfiles/.config/fontconfig/fonts.conf /home/$USER/.config/fontconfig/fonts.conf
+ln -nfs /home/$USER/dotfiles/.config/alacritty/alacritty.yml /home/$USER/.config/alacritty/alacritty.yml
