@@ -1,4 +1,4 @@
-"     _____  _____  
+"     _____  _____
 "    |  __ \| ____|     | customized vimrc file
 "    | |__) | |__       |
 "    |  _  /|___ \      | https://github.com/therealr5/dotfiles
@@ -66,6 +66,11 @@ nmap <leader>gr <Plug>(coc-references)
 " split keybinds
 nnoremap <leader>s :sp<CR>
 nnoremap <leader>v :vs<CR>
+
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
 
 " better autocompletion menu colors
