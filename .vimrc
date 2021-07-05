@@ -74,5 +74,5 @@ nnoremap <leader>l <C-w>l
 
 
 " better autocompletion menu colors
-highlight Pmenu ctermbg=black ctermfg=gray
+highlight Pmenu ctermbg=darkgray ctermfg=black
 highlight PmenuSel ctermbg=gray ctermfg=black
