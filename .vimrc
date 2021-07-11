@@ -62,6 +62,15 @@ nnoremap <leader>b :Buffers<CR>
 " keybinds for coc
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+nmap <leader>d :CocDiagnostics<CR>
+
+" quickfixlist binds
+nmap <C-j> :cnext<CR>
+nmap <C-k> :cprev<CR>
+
+" locallist binds
+nmap <C-l> :lnext<CR>
+nmap <C-h> :lprev<CR>
 
 " split keybinds
 nnoremap <leader>s :sp<CR>
@@ -71,7 +80,6 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
-
 
 " better autocompletion menu colors
 highlight Pmenu ctermbg=darkgray ctermfg=black
