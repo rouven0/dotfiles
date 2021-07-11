@@ -22,6 +22,8 @@ set smartcase
 set nowrap
 set incsearch
 set autoread
+set colorcolumn=120
+highlight ColorColumn ctermbg=darkgray
 
 " air-line
 let g:airline_powerline_fonts = 1
