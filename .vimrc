@@ -57,9 +57,13 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
+"open up a terminal
+nnoremap <leader>t :ter<CR>
+
 " trigger the fuzzy finder (fzf)
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>r :Rg<CR>
 
 " keybinds for coc
 nmap <leader>gd <Plug>(coc-definition)
