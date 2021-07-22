@@ -4,6 +4,7 @@ general {
 }
 
 order += "wireless wls3"
+order += "cpu_usage"
 order += "volume master"
 order += "battery 0"
 order += "tztime berlin"
@@ -11,6 +12,12 @@ order += "tztime berlin"
 wireless wls3 {
         format_up = "Connected to %essid (%bitrate) %ip"
         format_down = "W: down"
+}
+
+cpu_usage {
+        format = "CPU %usage"
+        max_threshold = "75"
+        format_above_threshold = "Warning: CPU %usage"
 }
 
 volume master {
