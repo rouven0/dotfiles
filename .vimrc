@@ -12,8 +12,6 @@ command W w
 command Wq wq
 command WQ wq
 
-" coloring stuff
-syntax on
 
 set number relativenumber
 set tabstop=4
@@ -25,9 +23,6 @@ set autoread
 set colorcolumn=120
 highlight ColorColumn ctermbg=darkgray
 
-" air-line
-let g:airline_powerline_fonts = 1
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
@@ -37,17 +32,17 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
 " set space as leader
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+"
+" air-line
+let g:airline_powerline_fonts = 1
 
-" folding, maybe I should bing it to keys
-setlocal foldmethod=indent
-set foldlevel=1
-set nofoldenable
 
 " NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
@@ -86,6 +81,10 @@ nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
+
+" coloring stuff
+let g:dracula_colorterm = 0
+colorscheme dracula
 
 " better autocompletion menu colors
 highlight Pmenu ctermbg=darkgray ctermfg=black
