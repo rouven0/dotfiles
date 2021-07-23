@@ -16,8 +16,6 @@ wireless wls3 {
 
 cpu_usage {
         format = "CPU %usage"
-        max_threshold = "75"
-        format_above_threshold = "Warning: CPU %usage"
 }
 
 volume master {
