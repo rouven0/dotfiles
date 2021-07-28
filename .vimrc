@@ -12,7 +12,6 @@ command W w
 command Wq wq
 command WQ wq
 
-
 set number relativenumber
 set tabstop=4
 set expandtab
@@ -26,7 +25,10 @@ highlight ColorColumn ctermbg=darkgray
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -36,13 +38,13 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
+
 " set space as leader
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 "
 " air-line
 let g:airline_powerline_fonts = 1
-
 
 " NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
