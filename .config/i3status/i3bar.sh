@@ -7,7 +7,7 @@ do
         current_player=$(playerctl -l)
         player_status=$(playerctl status)
 
-        if [ $current_player="" ]; then
+        if [ "$current_player" = "" ]; then
                 echo $line || exit 1
         else
                 echo "$player_status $current_player $status_symbol| $line" || exit 1
