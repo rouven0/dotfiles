@@ -5,10 +5,14 @@ i3status | while :
 do
         read line
         current_player=$(playerctl -l)
-        if [ $current_player = ""]; then
+        player_status=$(playerctl status)
+        
+        echo $status_symbol
+
+        if [ $current_player = "" ]; then
                 echo $line || exit 1
         else
-                echo "Playing $current_player | $line" || exit 1
+                echo "$player_status $current_player $status_symbol| $line" || exit 1
         fi;
 
 done
