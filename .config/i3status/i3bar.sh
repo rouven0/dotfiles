@@ -4,7 +4,7 @@
 i3status | while :
 do
         read line
-        current_player=$(playerctl -l)
+        current_player=$(playerctl -l | head -1)
         player_status=$(playerctl status)
 
         if [ "$current_player" = "" ]; then
