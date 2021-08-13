@@ -182,7 +182,7 @@
     history = mod1+h
 
     # Context menu.
-    context = mod1+period
+    context = mod1+a
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
