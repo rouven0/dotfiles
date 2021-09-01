@@ -10,7 +10,7 @@ do
         if [ "$current_player" = "" ]; then
                 echo $line || exit 1
         else
-                echo "$player_status $current_player| $line" || exit 1
+                echo "$player_status $current_player | $line" || exit 1
         fi;
 
 done

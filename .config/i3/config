@@ -41,7 +41,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # browser
 bindsym $mod2+f exec firefox
-#
+
+# alternate browser
+bindsym $mod2+q exec qutebrowser
+
 # discord
 bindsym $mod2+d exec discord
 
