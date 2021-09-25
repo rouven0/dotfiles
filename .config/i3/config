@@ -163,7 +163,8 @@ bindsym $mod+r mode "resize"
 for_window [class="^.*"] border pixel 1
 
 # wallpaper
-exec --no-startup-id sh .fehbg
+#exec --no-startup-id sh .fehbg
+exec --no-startup-id bash -c "while true; do sh /home/rouven/.config/i3/wallpaper.sh; sleep 10; done"
 
 # Colorscheme
 # class                 border  bground text    indicator child_border
