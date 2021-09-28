@@ -31,7 +31,8 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 bindsym XF86ScreenSaver exec --no-startup-id i3lock -i /home/rouven/.wallpaper/lockscreen.png -t -u
 
 # use the Print Key to take a screenshot
-bindsym Print exec --no-startup-id spectacle
+bindsym --release Print exec scrot -s /tmp/ -e 'xclip -selection clipboard -t image/png $f'
+bindsym --release Shift+Print exec scrot -s '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Screenshots/' 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -46,13 +47,10 @@ bindsym $mod2+f exec firefox
 bindsym $mod2+q exec qutebrowser
 
 # discord
-bindsym $mod2+d exec discord
+bindsym $mod2+d exec --no-startup-id discord
 
 # thunderbird
 bindsym $mod2+t exec thunderbird
-
-# virtualbox
-bindsym $mod2+v exec virtualbox
 
 # file manager
 bindsym $mod2+p exec pcmanfm
@@ -164,7 +162,7 @@ for_window [class="^.*"] border pixel 1
 
 # wallpaper
 #exec --no-startup-id sh .fehbg
-exec --no-startup-id bash -c "while true; do sh /home/rouven/.config/i3/wallpaper.sh; sleep 10; done"
+exec --no-startup-id bash -c "while true; do sh /home/rouven/.config/i3/wallpaper.sh; sleep 60; done"
 
 # Colorscheme
 # class                 border  bground text    indicator child_border
