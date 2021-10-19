@@ -13,11 +13,12 @@ settings:
   content.blocking.method:
     global: both
   content.notifications:
+    https://top.gg: true
     https://www.reddit.com: true
   url.searchengines:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       aw: https://wiki.archlinux.org/?search={}
-      dpy: https://discordpy.readthedocs.io/en/stable/search.html?q={}
       di: https://discord-interactions.readthedocs.io/en/latest/search.html?q={}
+      dpy: https://discordpy.readthedocs.io/en/stable/search.html?q={}
       yt: https://www.youtube.com/results?search_query={}
