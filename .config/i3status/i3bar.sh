@@ -6,7 +6,7 @@ do
         read line
         current_player=$(playerctl -l | head -1 | cut -d "." -f1)
         player_status=$(playerctl status)
-        current_layout=$(setxkbmap -query | grep layout | cut -d " " -f6)
+        current_layout=$(setxkbmap -query | grep variant | cut -d " " -f5)
 
         if [ "$current_player" = "" ]; then
                 echo "$line | $current_layout " || exit 1
