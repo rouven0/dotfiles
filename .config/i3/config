@@ -42,10 +42,6 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 # browser
 bindsym $mod2+f exec --no-startup-id firefox
 
-# change keyboard layout with 2 different binds, that form the same hardware bind
-bindsym $mod2+t exec "setxkbmap -layout us -variant dvorak-alt-intl"
-bindsym $mod2+y exec "setxkbmap -layout us -variant intl"
-
 # alternate browser
 bindsym $mod2+q exec --no-startup-id qutebrowser
 
