@@ -9,9 +9,9 @@ do
         current_layout=$(setxkbmap -query | grep variant | cut -d " " -f5)
 
         if [ "$current_player" = "" ]; then
-                echo "$line | $current_layout " || exit 1
+                echo "$line | $current_layout" || exit 1
         else
-                echo "$player_status $current_player | $line | $current_layout " || exit 1
+                echo "$player_status $current_player | $line | $current_layout" || exit 1
         fi;
 
 done
