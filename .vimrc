@@ -32,13 +32,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mhinz/vim-startify'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'psf/black', { 'branch': 'stable' }
 
 
 call plug#end()
 
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " set space as leader
 nnoremap <SPACE> <Nop>
