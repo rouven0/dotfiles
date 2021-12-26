@@ -3,7 +3,7 @@
 "    | |__) | |__       |
 "    |  _  /|___ \      | https://github.com/therealr5/dotfiles
 "    | | \ \ ___) |     |
-"    |_|  \_\____/      | last changed 2021-05-23
+"    |_|  \_\____/      | 
 "
 
 " basic commands bound to uppercase key
