@@ -14,7 +14,6 @@ command WQ wq
 
 set number relativenumber
 set tabstop=4
-set expandtab
 set smartcase
 set nowrap
 set incsearch
@@ -54,6 +53,9 @@ autocmd BufWritePre *.py execute ':Black'
 " air-line
 let g:airline_powerline_fonts = 1
 
+" directly render tex files partly
+set conceallevel=2
+
 " NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
 " NERDTree autostart"
@@ -74,17 +76,17 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>r :Rg<CR>
 
 " keybinds for coc
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
-nmap <leader>d :CocDiagnostics<CR>
+nnoremap <leader>gd <Plug>(coc-definition)
+nnoremap <leader>gr <Plug>(coc-references)
+nnoremap <leader>d :CocDiagnostics<CR>
 
 " quickfixlist binds
-nmap <C-j> :cnext<CR>
-nmap <C-k> :cprev<CR>
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
 
 " locallist binds
-nmap <C-l> :lnext<CR>
-nmap <C-h> :lprev<CR>
+nnoremap <C-l> :lnext<CR>
+nnoremap <C-h> :lprev<CR>
 
 " split keybinds
 nnoremap <leader>s :sp<CR>

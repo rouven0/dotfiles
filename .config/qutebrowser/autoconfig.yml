@@ -7,6 +7,8 @@
 config_version: 2
 settings:
   colors.webpage.darkmode.enabled:
+    global: false
+  colors.webpage.prefers_color_scheme_dark:
     global: true
   content.blocking.enabled:
     global: true
@@ -20,5 +22,6 @@ settings:
       DEFAULT: https://duckduckgo.com/?q={}
       aw: https://wiki.archlinux.org/?search={}
       di: https://discord-interactions.readthedocs.io/en/latest/search.html?q={}
-      dpy: https://discordpy.readthedocs.io/en/stable/search.html?q={}
+      wp: https://en.wikipedia.org/wiki/Special:Search?search={}
+      y: http://localhost:8090/yacysearch.html?query={}
       yt: https://www.youtube.com/results?search_query={}
