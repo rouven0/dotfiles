@@ -15,6 +15,9 @@ font pango:monospace 8
 # start kde connect
 exec --no-startup-id kdeconnect-indicator
 
+# start the compositor
+exec --no-startup-id picom -b
+
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
