@@ -4,7 +4,7 @@
 	signingkey = 72D8736BE583A4D1
 [core]
 	autocrlf = input
-	editor = vim
+	editor = nvim
 [pull]
 	rebase = false
 [init]

@@ -14,10 +14,8 @@ command WQ wq
 
 set number relativenumber
 set tabstop=4
+set shiftwidth=4
 set smartcase
-set nowrap
-set incsearch
-set autoread
 set colorcolumn=120
 highlight ColorColumn ctermbg=darkgray
 
@@ -33,7 +31,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'psf/black', { 'branch': 'stable' }
-
+Plug 'stoozy/vimcord'
+Plug 'sirtaj/vim-openscad'
+Plug 'github/copilot.vim'
 
 
 call plug#end()
@@ -69,7 +69,8 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 nmap Q <Nop>
 
 "open up a terminal
-nnoremap <leader>t :ter<CR>
+" breken atm
+"nnoremap <leader>t :ter<CR>
 
 " trigger the fuzzy finder (fzf)
 nnoremap <leader>f :Files<CR>
@@ -77,8 +78,6 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>r :Rg<CR>
 
 " keybinds for coc
-nnoremap <leader>gd <Plug>(coc-definition)
-nnoremap <leader>gr <Plug>(coc-references)
 nnoremap <leader>d :CocDiagnostics<CR>
 
 " quickfixlist binds
