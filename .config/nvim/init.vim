@@ -17,6 +17,7 @@ set tabstop=4
 set shiftwidth=4
 set smartcase
 set colorcolumn=120
+set nowrap
 highlight ColorColumn ctermbg=darkgray
 
 call plug#begin('~/.vim/plugged')
