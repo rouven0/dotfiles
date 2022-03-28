@@ -23,8 +23,6 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 
 
 -- Autstart some stuff"
@@ -124,6 +122,13 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
+-- Simple cpu widget
+cpu_widget = wibox.widget.textbox()
+vicious.register(cpu_widget, vicious.widgets.cpu, "| CPU: $1% ")
+
+-- Simle network widget
+net_widget = wibox.widget.textbox()
+vicious.register(net_widget, vicious.widgets.net, "| Net: ${wls3 down_kb}Kb/s ${wls3 up_kb}Kb/s ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -220,9 +225,8 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
-			net_speed_widget(),
-			cpu_widget(),
-			volume_widget({widget_type="vertical_bar"}),
+			net_widget,
+			cpu_widget,
 			wibox.widget.systray(),
 			s.mylayoutbox,
 		},
@@ -355,13 +359,15 @@ globalkeys = gears.table.join(
 			{description = "play or pause the current track", group = "xf86"}),
 	awful.key({}, "XF86AudioStop", function () awful.util.spawn("playerctl stop") end,
 			{description = "stop the current track", group = "xf86"}),
-	-- TODO lockscreen
+	awful.key({}, "XF86ScreenSaver", function () awful.util.spawn("xsecurelock") end,
+			{description = "lock the screen", group = "xf86"}),
 	awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end,
 			{description = "take a screenshot", group = "xf86"}),
+
 	-- Discord
 	awful.key({ "Mod1" }, "d", function() awful.spawn("discord") end,
 		{description = "launch discord", group = "launcher"}),
-	-- Discord
+	-- A file manager
 	awful.key({ "Mod1" }, "p", function() awful.spawn("pcmanfm") end,
 		{description = "launch pcmanfm", group = "launcher"}),
 	-- Firefox
