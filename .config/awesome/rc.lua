@@ -12,7 +12,7 @@ local vicious = require("vicious")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
+--local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -32,26 +32,26 @@ awful.spawn.with_shell("kdeconnect-indicator")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
-	naughty.notify({ preset = naughty.config.presets.critical,
-					title = "Oops, there were errors during startup!",
-					text = awesome.startup_errors })
-end
+--if awesome.startup_errors then
+	--naughty.notify({ preset = naughty.config.presets.critical,
+					--title = "Oops, there were errors during startup!",
+					--text = awesome.startup_errors })
+--end
 
 -- Handle runtime errors after startup
-do
-	local in_error = false
-	awesome.connect_signal("debug::error", function (err)
-		-- Make sure we don't go into an endless error loop
-		if in_error then return end
-		in_error = true
+--do
+	--local in_error = false
+	--awesome.connect_signal("debug::error", function (err)
+		---- Make sure we don't go into an endless error loop
+		--if in_error then return end
+		--in_error = true
 
-		naughty.notify({ preset = naughty.config.presets.critical,
-						title = "Oops, an error happened!",
-						text = tostring(err) })
-		in_error = false
-	end)
-end
+		--naughty.notify({ preset = naughty.config.presets.critical,
+						--title = "Oops, an error happened!",
+						--text = tostring(err) })
+		--in_error = false
+	--end)
+--end
 -- }}}
 
 -- {{{ Variable definitions
@@ -74,6 +74,7 @@ modkey = "Mod4"
 awful.layout.layouts = {
 	awful.layout.suit.tile,
 	awful.layout.suit.tile.top,
+	awful.layout.suit.tile.left,
 	awful.layout.suit.fair,
 	awful.layout.suit.spiral
 }
@@ -81,6 +82,22 @@ awful.layout.layouts = {
 
 -- Enable gaps
 beautiful.useless_gap = 5
+
+--- {{{ Notifications
+-- Configre naughty
+--naughty.config.defaults.position = "top_right"
+--naughty.config.defaults.timeout = 5
+--naughty.config.defaults.margin = 8
+--naughty.config.defaults.ontop = true
+--naughty.config.defaults.icon_size = 64
+--naughty.config.defaults.fg = beautiful.fg_focus
+--naughty.config.defaults.bg = beautiful.bg_focus
+--naughty.config.defaults.border_color = beautiful.border_focus
+--naughty.config.defaults.border_width = 2
+
+
+
+---}}}
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
@@ -376,6 +393,10 @@ globalkeys = gears.table.join(
 	-- Qutebrowser
 	awful.key({ "Mod1" }, "q", function() awful.spawn("qutebrowser") end,
 		{description = "launch qutebrowser", group = "launcher"})
+
+	---- Dismiss all Notifications
+	--awful.key({ "Mod1" }, "space", function() naughty.destroy_all_notifications() end,
+		--{description = "dismiss all Notifications", group = "naughty"})
 )
 
 clientkeys = gears.table.join(
