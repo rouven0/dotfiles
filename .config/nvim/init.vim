@@ -3,7 +3,7 @@
 "    | |__) | |__       |
 "    |  _  /|___ \      | https://github.com/therealr5/dotfiles
 "    | | \ \ ___) |     |
-"    |_|  \_\____/      | 
+"    |_|  \_\____/      |
 "
 
 " basic commands bound to uppercase key
@@ -31,10 +31,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'psf/black', { 'branch': 'stable' }
-Plug 'stoozy/vimcord'
+Plug 'psf/black', { 'branch': 'stable' } " Small note: We have to install python3-pynvim for this to work
 Plug 'sirtaj/vim-openscad'
 Plug 'github/copilot.vim'
+Plug 'andweeb/presence.nvim'
+Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 
 
 call plug#end()
@@ -48,6 +49,9 @@ vnoremap : ;
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
+"discord presence
+let g:presence_enable_line_number = 1
+
 " black code formatter
 let g:black_linelength = 120
 autocmd BufWritePre *.py execute ':Black'
@@ -55,23 +59,23 @@ autocmd BufWritePre *.py execute ':Black'
 " air-line
 let g:airline_powerline_fonts = 1
 
+" minimap
+let g:minimap_auto_start = 1 
+let g:minimap_auto_start_win_enter = 1
+
 " directly render tex files partly
 set conceallevel=2
+" beautify indents
+:set list lcs=tab:\|\ 
 
 " NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
 " NERDTree autostart"
 autocmd VimEnter * NERDTree | wincmd p
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
 
 "remove ex-mode shortcut
 nmap Q <Nop>
 
-"open up a terminal
-" breken atm
-"nnoremap <leader>t :ter<CR>
 
 " trigger the fuzzy finder (fzf)
 nnoremap <leader>f :Files<CR>
