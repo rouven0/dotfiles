@@ -305,7 +305,9 @@ globalkeys = gears.table.join(
 		{description = "go back", group = "client"}),
 
 	-- Standard program
-	awful.key({ modkey,		}, "Return", function () awful.spawn(terminal) end,
+	awful.key({ modkey, 	 }, "Return", function () awful.spawn(terminal) end,
+			{description = "open a terminal", group = "launcher"}),
+	awful.key({ modkey,	"Shift" }, "Return", function () awful.spawn("bash .config/awesome/alacritty-tmux.sh") end,
 			{description = "open a terminal", group = "launcher"}),
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 			{description = "reload awesome", group = "awesome"}),
@@ -390,6 +392,9 @@ globalkeys = gears.table.join(
 	-- Firefox
 	awful.key({ "Mod1" }, "f", function() awful.spawn("firefox") end,
 		{description = "launch firefox", group = "launcher"}),
+	-- Chrome
+	awful.key({ "Mod1" }, "c", function() awful.spawn("google-chrome") end,
+		{description = "launch chrome browser", group = "launcher"}),
 	-- Qutebrowser
 	awful.key({ "Mod1" }, "q", function() awful.spawn("qutebrowser") end,
 		{description = "launch qutebrowser", group = "launcher"})
