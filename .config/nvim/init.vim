@@ -35,7 +35,6 @@ Plug 'psf/black', { 'branch': 'stable' } " Small note: We have to install python
 Plug 'sirtaj/vim-openscad'
 Plug 'github/copilot.vim'
 Plug 'andweeb/presence.nvim'
-Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 
 
 call plug#end()
@@ -72,6 +71,9 @@ set conceallevel=2
 nnoremap <leader>n :NERDTreeFocus<CR> :NERDTreeRefreshRoot<CR>
 " NERDTree autostart"
 autocmd VimEnter * NERDTree | wincmd p
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "remove ex-mode shortcut
 nmap Q <Nop>
