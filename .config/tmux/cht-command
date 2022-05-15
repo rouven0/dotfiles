@@ -1,6 +1,5 @@
 find
 man
-tldr
 sed
 awk
 tr
@@ -26,13 +25,8 @@ ssh
 scp
 cargo
 git
-git-worktree
-git-status
-git-commit
-git-rebase
 docker
 docker-compose
-stow
 chmod
 chown
 make
