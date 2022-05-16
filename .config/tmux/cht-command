@@ -30,4 +30,3 @@ docker-compose
 chmod
 chown
 make
-rsync

@@ -8,5 +8,5 @@ fi
 read -p "Enter Query: " query
 
 query=`echo $query | tr ' ' '+'`
-tmux display-popup "curl -s cht.sh/$selected/$query | less -r"
+curl -s cht.sh/$selected/$query | less -r
 
