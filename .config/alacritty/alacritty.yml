@@ -3,6 +3,8 @@ env:
     FZF_DEFAULT_COMMAND: rg --files
 font:
   size: 9
+  normal:
+    family: Hack
 
 shell:
   program: '/usr/bin/fish'
