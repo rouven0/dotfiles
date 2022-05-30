@@ -31,7 +31,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'psf/black', { 'branch': 'stable' } " Small note: We have to install python3-pynvim for this to work
+Plug 'psf/black' " Small note: We have to install python3-pynvim for this to work
 Plug 'sirtaj/vim-openscad'
 Plug 'github/copilot.vim'
 Plug 'andweeb/presence.nvim'

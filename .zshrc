@@ -9,7 +9,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -54,13 +53,9 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Don't forget to clone the actual repos
+# 	https://gihtub.com/zsh-users/zsh-autosuggestions
+#	https://github.com/Aloxaf/fzf-tab
 plugins=(zsh-autosuggestions fzf-tab)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00bbbb,bold"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -70,6 +65,18 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias ta="tmux attach"
 alias vim="nvim"
+alias l="ls"
+
+alias hst="HASTE_SERVER=https://paste.rfive.de haste"
+
+function c() {
+	cd
+	if [ $# -eq 0 ]; then
+		cd $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' -type d | fzf --preview 'tree -C {}')
+	else
+		$1 $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' | fzf --preview 'tree -C {}')
+	fi
+}
 
 function lzd() {
 	DOCKER_HOST=ssh://$1 lazydocker
