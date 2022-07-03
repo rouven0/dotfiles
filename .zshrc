@@ -74,7 +74,7 @@ function c() {
 	if [ $# -eq 0 ]; then
 		cd $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' -type d | fzf --preview 'tree -C {}')
 	else
-		$1 $(find -maxdepth 4 -not -path '*[cC]ache*' -not -path '*[tT]rash*' | fzf --preview 'tree -C {}')
+		$1 $(find -maxdepth 5 -not -path '*[cC]ache*' -not -path '*[tT]rash*' | fzf --preview 'tree -C {}')
 	fi
 }
 
@@ -84,4 +84,8 @@ function lzd() {
 
 function sn() {
 	sudo nmcli connection up $(nmcli connection show | tail -n +2 | cut -d " " -f1 | fzf)
+}
+
+prompt_dir() {
+	prompt_segment blue $CURRENT_FG '%c'
 }
