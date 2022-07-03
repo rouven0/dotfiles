@@ -22,7 +22,6 @@ require("awful.hotkeys_popup.keys")
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 
 -- Autstart some stuff"
@@ -82,6 +81,9 @@ awful.layout.layouts = {
 
 -- Enable gaps
 beautiful.useless_gap = 5
+
+-- Background color for wibar
+beautiful.wibar_bg="#282a36"
 
 --- {{{ Notifications
 -- Configre naughty
@@ -381,23 +383,23 @@ globalkeys = gears.table.join(
 	awful.key({}, "XF86ScreenSaver", function () awful.util.spawn("xsecurelock") end,
 			{description = "lock the screen", group = "xf86"}),
 	awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end,
-			{description = "take a screenshot", group = "xf86"}),
+			{description = "take a screenshot", group = "xf86"})
 
-	-- Discord
-	awful.key({ "Mod1" }, "d", function() awful.spawn("discord") end,
-		{description = "launch discord", group = "launcher"}),
-	-- A file manager
-	awful.key({ "Mod1" }, "p", function() awful.spawn("pcmanfm") end,
-		{description = "launch pcmanfm", group = "launcher"}),
-	-- Firefox
-	awful.key({ "Mod1" }, "f", function() awful.spawn("firefox") end,
-		{description = "launch firefox", group = "launcher"}),
-	-- Chrome
-	awful.key({ "Mod1" }, "c", function() awful.spawn("google-chrome") end,
-		{description = "launch chrome browser", group = "launcher"}),
-	-- Qutebrowser
-	awful.key({ "Mod1" }, "q", function() awful.spawn("qutebrowser") end,
-		{description = "launch qutebrowser", group = "launcher"})
+	---- Discord
+	--awful.key({ "Mod1" }, "d", function() awful.spawn("discord") end,
+		--{description = "launch discord", group = "launcher"}),
+	---- A file manager
+	--awful.key({ "Mod1" }, "p", function() awful.spawn("pcmanfm") end,
+		--{description = "launch pcmanfm", group = "launcher"}),
+	---- Firefox
+	--awful.key({ "Mod1" }, "f", function() awful.spawn("firefox") end,
+		--{description = "launch firefox", group = "launcher"}),
+	---- Chrome
+	--awful.key({ "Mod1" }, "c", function() awful.spawn("google-chrome") end,
+		--{description = "launch chrome browser", group = "launcher"}),
+	---- Qutebrowser
+	--awful.key({ "Mod1" }, "q", function() awful.spawn("qutebrowser") end,
+		--{description = "launch qutebrowser", group = "launcher"})
 
 	---- Dismiss all Notifications
 	--awful.key({ "Mod1" }, "space", function() naughty.destroy_all_notifications() end,
