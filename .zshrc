@@ -66,6 +66,7 @@ source $ZSH/oh-my-zsh.sh
 alias ta="tmux attach"
 alias vim="nvim"
 alias l="ls"
+alias rm="trash"
 
 alias hst="HASTE_SERVER=https://paste.rfive.de haste"
 
