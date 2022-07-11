@@ -19,13 +19,11 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Load Debian menu entries
-local debian = require("debian.menu")
-local has_fdo, freedesktop = pcall(require, "freedesktop")
-
 
 -- Autstart some stuff"
 awful.spawn.with_shell("sh ~/.config/awesome/autostart.sh")
+-- extra stuff that doesn't work in autostart
+awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("kdeconnect-indicator")
 
 -- {{{ Error handling
@@ -58,7 +56,7 @@ awful.spawn.with_shell("kdeconnect-indicator")
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -113,22 +111,6 @@ myawesomemenu = {
 
 local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
 local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-	mymainmenu = freedesktop.menu.build({
-		before = { menu_awesome },
-		after =  { menu_terminal }
-	})
-else
-	mymainmenu = awful.menu({
-		items = {
-			menu_awesome,
-				{ "Debian", debian.menu.Debian_menu.Debian },
-				menu_terminal,
-				}
-	})
-end
-
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
 
@@ -366,12 +348,6 @@ globalkeys = gears.table.join(
 			{description = "show the menubar", group = "launcher"}),
 
 	-- XF86 functions
-	awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
-			{description = "increase volume", group = "xf86"}),
-	awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
-			{description = "decrease volume", group = "xf86"}),
-	awful.key({}, "XF86AudioMute", function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
-			{description = "mute", group = "xf86"}),
 	awful.key({}, "XF86AudioNext", function () awful.util.spawn("playerctl next") end,
 			{description = "next track", group = "xf86"}),
 	awful.key({}, "XF86AudioPrev", function () awful.util.spawn("playerctl previous") end,

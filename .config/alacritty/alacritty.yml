@@ -4,7 +4,7 @@ env:
 font:
   size: 9
   normal:
-    family: Hack
+    family: SourceCodePro
 
 shell:
   program: '/usr/bin/zsh'
