@@ -1,7 +1,7 @@
 [user]
 	name = Rouven
-	email = seifertrouven@gmail.com
-	signingkey = 72D8736BE583A4D1
+	email = rouven@rfive.de
+	signingkey = 628F9207AA533C52
 [core]
 	autocrlf = input
 	editor = vim
