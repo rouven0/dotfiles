@@ -5,6 +5,7 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -19,12 +20,21 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- We don't want awesome's native notification client
+package.loaded["naughty.dbus"] = {}
+
 
 -- Autstart some stuff"
-awful.spawn.with_shell("sh ~/.config/awesome/autostart.sh")
--- extra stuff that doesn't work in autostart
 awful.spawn.with_shell("xfce4-power-manager")
+--awful.spawn.with_shell("picom -b")
+awful.spawn.with_shell("volumeicon")
+awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("kdeconnect-indicator")
+awful.spawn.with_shell("ljght-locker --lock-on-lid")
+
+-- Notifications
+--awful.spawn.with_shell("dunst")
+awful.spawn.with_shell("deadd-notification-center")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -123,13 +133,17 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
+-- logout
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+
 -- Simple cpu widget
-cpu_widget = wibox.widget.textbox()
-vicious.register(cpu_widget, vicious.widgets.cpu, "| CPU: $1% ")
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 -- Simle network widget
-net_widget = wibox.widget.textbox()
-vicious.register(net_widget, vicious.widgets.net, "| Net: ${wls3 down_kb}Kb/s ${wls3 up_kb}Kb/s ")
+local net_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+
+-- battery
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -226,10 +240,12 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
-			net_widget,
-			cpu_widget,
+			cpu_widget(),
+			net_widget(),
+			battery_widget(),
 			wibox.widget.systray(),
 			s.mylayoutbox,
+			logout_menu_widget()
 		},
 	}
 end)
@@ -295,6 +311,8 @@ globalkeys = gears.table.join(
 			{description = "open a terminal", group = "launcher"}),
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 			{description = "reload awesome", group = "awesome"}),
+	awful.key({ modkey, "Control" }, "l", function() awful.spawn("light-locker-command -l") end,
+			{description = "lock the screen", group = "awesome"}),
 
 	awful.key({ modkey,	"Shift" }, "k",	function () awful.tag.incmwfact( 0.05)		end,
 			{description = "increase master width factor", group = "layout"}),
@@ -356,10 +374,8 @@ globalkeys = gears.table.join(
 			{description = "play or pause the current track", group = "xf86"}),
 	awful.key({}, "XF86AudioStop", function () awful.util.spawn("playerctl stop") end,
 			{description = "stop the current track", group = "xf86"}),
-	awful.key({}, "XF86ScreenSaver", function () awful.util.spawn("xsecurelock") end,
-			{description = "lock the screen", group = "xf86"}),
 	awful.key({}, "Print", function () awful.util.spawn("flameshot gui") end,
-			{description = "take a screenshot", group = "xf86"})
+			{description = "take a screenshot", group = "xf86"}),
 
 	---- Discord
 	--awful.key({ "Mod1" }, "d", function() awful.spawn("discord") end,
@@ -377,9 +393,17 @@ globalkeys = gears.table.join(
 	--awful.key({ "Mod1" }, "q", function() awful.spawn("qutebrowser") end,
 		--{description = "launch qutebrowser", group = "launcher"})
 
-	---- Dismiss all Notifications
-	--awful.key({ "Mod1" }, "space", function() naughty.destroy_all_notifications() end,
-		--{description = "dismiss all Notifications", group = "naughty"})
+	--Notification stuff
+	awful.key({ "Mod1" }, "space", function() awful.spawn("sh -c 'kill -s USR1 $(pidof deadd-notification-center') ") end,
+		{description = "Open the notification center", group = "dunst"})
+	--awful.key({ "mod1" , "shift"}, "space", function() awful.spawn("dunstctl close-all") end,
+		--{description = "dismiss all notifications", group = "dunst"}),
+	--awful.key({ "mod1" }, "space", function() awful.spawn("dunstctl close") end,
+		--{description = "dismiss the most recent notification", group = "dunst"}),
+	--awful.key({ "mod1" }, "h", function() awful.spawn("dunstctl history-pop") end,
+		--{description = "notification history", group = "dunst"}),
+	--awful.key({ "mod1" }, "a", function() awful.spawn("dunstctl context") end,
+		--{description = "open the notification context menu", group = "dunst"})
 )
 
 clientkeys = gears.table.join(

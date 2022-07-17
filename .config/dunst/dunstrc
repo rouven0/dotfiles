@@ -168,21 +168,22 @@
     mouse_right_click = close_all
 
 [shortcuts]
+    # commented out, we use dunstctl for that
     # Shortcuts are specified as [modifier+][modifier+]...key
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
     # "mod3" and "mod4" (windows-key).
 
     # Close notification.
-    close = mod1+space
+    # close = mod1+space
 
     # Close all notifications.
-    close_all = mod1+shift+space
+    #close_all = mod1+shift+space
 
     # Redisplay last message(s).
-    history = mod1+h
+    # history = mod1+h
 
     # Context menu.
-    context = mod1+a
+    # context = mod1+a
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
