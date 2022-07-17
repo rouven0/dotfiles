@@ -62,9 +62,11 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source $ZSH/oh-my-zsh.sh
 
+
 # Aliases
 alias ta="tmux attach"
 alias vim="nvim"
+alias vi="/usr/bin/vim"
 alias l="ls"
 alias rm="trash"
 
@@ -90,3 +92,6 @@ function sn() {
 prompt_dir() {
 	prompt_segment blue $CURRENT_FG '%c'
 }
+
+# colorscript at startup
+colorscript -r
