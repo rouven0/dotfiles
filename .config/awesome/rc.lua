@@ -30,7 +30,8 @@ awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("kdeconnect-indicator")
-awful.spawn.with_shell("ljght-locker --lock-on-lid")
+awful.spawn.with_shell("light-locker --lock-on-lid")
+awful.spawn.with_shell("nextcloud")
 
 -- Notifications
 --awful.spawn.with_shell("dunst")
