@@ -81,6 +81,7 @@ nmap Q <Nop>
 
 " trigger the fuzzy finder (fzf)
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>r :Rg<CR>
 

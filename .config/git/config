@@ -1,7 +1,7 @@
 [user]
 	name = Rouven
 	email = rouven@rfive.de
-	signingkey = 628F9207AA533C52
+	signingkey = key::sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBECuoyvfFVNRu4FfuA/JjCShtvTWMjZjORZUTWg2iPOXqGNq3CLvOg2yX+xqcqNJfwIHpe5Ty8zZRB91qaswJ6sAAAAEc3NoOg== manjaro-26-09-2022-18127393
 [core]
 	autocrlf = input
 	editor = vim
@@ -12,4 +12,6 @@
 [commit]
 	gpgsign = true
 [gpg]
-	program = gpg2
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/rouven/.ssh/allowed_signers

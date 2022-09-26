@@ -9,8 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
+# Set list of themes to pick from when loading at random Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -56,12 +55,14 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Don't forget to clone the actual repos
 # 	https://gihtub.com/zsh-users/zsh-autosuggestions
 #	https://github.com/Aloxaf/fzf-tab
-plugins=(zsh-autosuggestions fzf-tab)
+plugins=(zsh-autosuggestions fzf-tab ssh-agent)
+ssh-add ~/.ssh/git-yubikey
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00bbbb,bold"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 source $ZSH/oh-my-zsh.sh
 
+EDITOR="vim"
 
 # Aliases
 alias ta="tmux attach"
@@ -70,7 +71,6 @@ alias vi="/usr/bin/vim"
 alias l="ls"
 alias rm="trash"
 
-alias hst="HASTE_SERVER=https://paste.rfive.de haste"
 
 function c() {
 	cd
@@ -86,7 +86,7 @@ function lzd() {
 }
 
 function sn() {
-	sudo nmcli connection up $(nmcli connection show | tail -n +2 | cut -d " " -f1 | fzf)
+	sudo nmcli connection up $(nmcli connection show | tail -n +2 | cut -d " " -f1 | fzf --preview 'nmcli connection show {}')
 }
 
 prompt_dir() {
