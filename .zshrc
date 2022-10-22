@@ -55,10 +55,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Don't forget to clone the actual repos
 # 	https://gihtub.com/zsh-users/zsh-autosuggestions
 #	https://github.com/Aloxaf/fzf-tab
-plugins=(zsh-autosuggestions fzf-tab ssh-agent)
-ssh-add ~/.ssh/git-yubikey
+plugins=(zsh-autosuggestions fzf-tab bw)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#00bbbb,bold"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 source $ZSH/oh-my-zsh.sh
 
@@ -71,6 +73,9 @@ alias vi="/usr/bin/vim"
 alias l="ls"
 alias rm="trash"
 
+function b() {
+	export BW_SESSION="$(bw unlock --raw)"
+}
 
 function c() {
 	cd
