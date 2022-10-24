@@ -73,10 +73,6 @@ alias vi="/usr/bin/vim"
 alias l="ls"
 alias rm="trash"
 
-function b() {
-	export BW_SESSION="$(bw unlock --raw)"
-}
-
 function c() {
 	cd
 	if [ $# -eq 0 ]; then
