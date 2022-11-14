@@ -87,7 +87,7 @@ function lzd() {
 }
 
 function sn() {
-	sudo nmcli connection up $(nmcli connection show | tail -n +2 | cut -d " " -f1 | fzf --preview 'nmcli connection show {}')
+	nmcli connection up $(nmcli connection show | tail -n +2 | cut -d " " -f1 | fzf --preview 'nmcli connection show {}')
 }
 
 prompt_dir() {
