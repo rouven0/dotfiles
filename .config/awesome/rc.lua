@@ -13,7 +13,7 @@ local vicious = require("vicious")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
---local naughty = require("naughty")
+local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -21,7 +21,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 -- We don't want awesome's native notification client
-package.loaded["naughty.dbus"] = {}
+--package.loaded["naughty.dbus"] = {}
 
 
 -- Autstart some stuff"
@@ -95,16 +95,16 @@ beautiful.useless_gap = 5
 beautiful.wibar_bg="#282a36"
 
 --- {{{ Notifications
--- Configre naughty
---naughty.config.defaults.position = "top_right"
---naughty.config.defaults.timeout = 5
---naughty.config.defaults.margin = 8
---naughty.config.defaults.ontop = true
---naughty.config.defaults.icon_size = 64
---naughty.config.defaults.fg = beautiful.fg_focus
---naughty.config.defaults.bg = beautiful.bg_focus
---naughty.config.defaults.border_color = beautiful.border_focus
---naughty.config.defaults.border_width = 2
+ Configre naughty
+naughty.config.defaults.position = "top_right"
+naughty.config.defaults.timeout = 5
+naughty.config.defaults.margin = 8
+naughty.config.defaults.ontop = true
+naughty.config.defaults.icon_size = 64
+naughty.config.defaults.fg = beautiful.fg_focus
+naughty.config.defaults.bg = beautiful.bg_focus
+naughty.config.defaults.border_color = beautiful.border_focus
+naughty.config.defaults.border_width = 2
 
 
 
@@ -135,16 +135,16 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mytextclock = wibox.widget.textclock()
 
 -- logout
-local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+--local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 -- Simple cpu widget
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+--local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 -- Simle network widget
-local net_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+--local net_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 
 -- battery
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+--local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -241,12 +241,12 @@ awful.screen.connect_for_each_screen(function(s)
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
 			mytextclock,
-			cpu_widget(),
-			net_widget(),
-			battery_widget(),
-			wibox.widget.systray(),
+			--cpu_widget(),
+			--net_widget(),
+			--battery_widget(),
+			--wibox.widget.systray(),
 			s.mylayoutbox,
-			logout_menu_widget()
+			--logout_menu_widget()
 		},
 	}
 end)
