@@ -11,11 +11,14 @@
 		alacritty
 		networkmanagerapplet
 		pcmanfm
-		lxappearance
 		xsel
+		ulauncher
+
+		# graphics
+		lxappearance
 		feh
 		flameshot
-		ulauncher
+		picom
 
 		# editing
 		neovim
@@ -48,7 +51,7 @@
 		enable = true;
 		shellAliases = {
 			rm = "trash";
-			vim = "nvim";
+			# vim = "nvim";
 		};
 		history = {
 			size = 10000;
@@ -107,6 +110,33 @@
 				prompt_segment blue $CURRENT_FG '%c'
 			}
 		'';
+	};
+
+	programs.tmux = {
+		enable = true;
+		keyMode = "vi";
+		terminal = "tmux-256color";
+		clock24 = true;
+		plugins = with pkgs.tmuxPlugins; [
+			{
+				plugin = dracula;
+				extraConfig = ''
+					set -g @dracula-plugins "weather time"
+					set -g @dracula-show-left-icon session
+					set -g @dracula-show-powerline true
+					set -g @dracula-show-fahrenheit false
+				'';
+			}
+		];
+		extraConfig =
+		''
+			set -g default-shell /home/rouven/.nix-profile/bin/zsh
+			bind P display-popup
+		'';
+	};
+
+	services.picom = {
+		enable = true;
 	};
 
 
