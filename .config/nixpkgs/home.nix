@@ -11,14 +11,17 @@
 		alacritty
 		networkmanagerapplet
 		pcmanfm
+		vifm # maybe we can get this done the nix way
 		xsel
 		ulauncher
+		lightlocker
 
 		# graphics
 		lxappearance
 		feh
 		flameshot
 		picom
+		okular
 
 		# editing
 		neovim
@@ -34,6 +37,12 @@
 		thunderbird
 		discord
 		google-chrome
+		nextcloud-client
+
+		# messaging
+		tdesktop
+		element-desktop
+		whatsapp-for-linux
 
 		# yubikey and password stuff
 		yubikey-manager
@@ -51,7 +60,6 @@
 		enable = true;
 		shellAliases = {
 			rm = "trash";
-			# vim = "nvim";
 		};
 		history = {
 			size = 10000;
