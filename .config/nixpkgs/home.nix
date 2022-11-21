@@ -22,9 +22,9 @@
 		flameshot
 		picom
 		okular
+		gimp
 
 		# editing
-		neovim
 		fzf
 		powerline-fonts
 
@@ -44,6 +44,10 @@
 		element-desktop
 		whatsapp-for-linux
 
+		# games
+		minecraft
+		superTuxKart
+
 		# yubikey and password stuff
 		yubikey-manager
 		yubikey-manager-qt
@@ -54,7 +58,22 @@
 		# misc
 		neofetch
 		trash-cli
+		
 	];
+
+	programs.git = {
+		enable = true;
+		userName = "Rouven Seifert";
+		userEmail = "rouven@rfive.de";
+		extraConfig = {
+			user.signingkey = "B95E8FE6B11C4D09";
+			pull.rebase = false;
+			init.defaultBranch = "main";
+			commit.gpgsign = true;
+		};
+
+	};
+ 
 
 	programs.zsh = {
 		enable = true;
@@ -125,22 +144,22 @@
 		keyMode = "vi";
 		terminal = "tmux-256color";
 		clock24 = true;
-		plugins = with pkgs.tmuxPlugins; [
-			{
-				plugin = dracula;
-				extraConfig = ''
-					set -g @dracula-plugins "weather time"
-					set -g @dracula-show-left-icon session
-					set -g @dracula-show-powerline true
-					set -g @dracula-show-fahrenheit false
-				'';
-			}
-		];
 		extraConfig =
 		''
 			set -g default-shell /home/rouven/.nix-profile/bin/zsh
 			bind P display-popup
 		'';
+		plugins = with pkgs.tmuxPlugins; [
+			{
+				plugin = dracula;
+				extraConfig = ''
+					set -g @dracula-show-fahrenheit false
+					set -g @dracula-plugins "weather time"
+					set -g @dracula-show-left-icon session
+					set -g @dracula-show-powerline true
+				'';
+			}
+		];
 	};
 
 	services.picom = {
