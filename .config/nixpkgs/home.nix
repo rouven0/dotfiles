@@ -188,7 +188,7 @@
 			highlight ColorColumn ctermbg=darkgray
 
 			" beautify indents
-			:set list lcs=tab:\| 
+			:set list lcs=tab:\|\ 
 	
 			nnoremap ; :
 			nnoremap : ;
