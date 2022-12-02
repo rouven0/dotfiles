@@ -15,6 +15,7 @@
 		xsel
 		ulauncher
 		lightlocker
+		vlc
 
 		# graphics
 		lxappearance
@@ -53,7 +54,6 @@
 		yubikey-manager-qt
 		yubioath-desktop
 		pass
-		qtpass
 
 		# misc
 		neofetch
@@ -164,13 +164,18 @@
 		];
 	};
 
-
 	programs.neovim = {
 		enable = true;
 		# defaultEditor = true; why the hell doesn't this work :(
-		vimAlias = true;
-		viAlias = true;
-		plugins = with pkgs.vimPlugins; [ nerdtree nerdcommenter fugitive-gitlab-vim vim-repeat vim-airline fzf-vim dracula-vim ];
+		#vimAlias = true;
+		plugins = with pkgs.vimPlugins; [
+			nerdtree
+			nerdcommenter
+			fugitive-gitlab-vim
+			vim-repeat vim-airline
+			fzf-vim dracula-vim
+			vim-nix
+		];
 		extraConfig = 
 			'' 
 			" basic commands bound to uppercase key
@@ -268,7 +273,7 @@
 	# You can update Home Manager without changing this value. See
 	# the Home Manager release notes for a list of state version
 	# changes in each release.
-	home.stateVersion = "22.05";
+	home.stateVersion = "22.11";
 
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
